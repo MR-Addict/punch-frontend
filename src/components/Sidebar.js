@@ -26,7 +26,7 @@ const Sidebar = () => {
       <div className='mt-10 flex flex-col gap-2'>
         {SidebarData.map((item, index) => {
           return (
-            <div>
+            <div key={item.title}>
               <NavLink
                 end
                 to={item.to}

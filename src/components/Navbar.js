@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Switch from "react-switch";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
 
 import { useStateContext } from "../context/ContextProvider";
-import { Others } from "../data";
 
 const NavButton = ({ customFunc, icon, color, dotColor }) => (
   <button
@@ -19,23 +18,7 @@ const NavButton = ({ customFunc, icon, color, dotColor }) => (
 );
 
 const Navbar = () => {
-  const { setIsMenuOpened, themeColor, isDarkMode, setIsDarkMode, screenSize, setScreenSize } = useStateContext();
-
-  useEffect(() => {
-    const handleResize = () => setScreenSize(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    if (screenSize <= Others.breakPoint) {
-      setIsMenuOpened(false);
-    } else {
-      setIsMenuOpened(true);
-    } // eslint-disable-next-line
-  }, [screenSize]);
+  const { setIsMenuOpened, themeColor, isDarkMode, setIsDarkMode } = useStateContext();
 
   return (
     <div className='flex flex-row justify-between m-2'>
