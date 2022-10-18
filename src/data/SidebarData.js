@@ -5,7 +5,7 @@ import { BsFillBarChartFill } from "react-icons/bs";
 const SidebarData = [
   {
     title: "首页",
-    to: "/admin",
+    to: "/",
     icon: <AiFillHome />,
   },
   {

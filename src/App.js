@@ -12,13 +12,12 @@ const App = () => {
   return (
     <Router>
       <div className={isDarkMode ? "dark" : ""} style={{ display: "flex", position: "relative" }}>
-        {screenSize > 900}
         {isMenuOpened ? (
-          <div className='fixed w-72'>
+          <div className='fixed w-72 dark:bg-secondary-dark-bg'>
             <Sidebar />
           </div>
         ) : (
-          <div className='w-0'></div>
+          <div className='w-0 duration-150 dark:bg-secondary-dark-bg'></div>
         )}
         <div
           className={
@@ -30,7 +29,7 @@ const App = () => {
           <Navbar />
           <div className='m-4'>
             <Routes>
-              <Route path='/admin' element={<Home />} />
+              <Route path='/' element={<Home />} />
               <Route path='/settings' element={<Settings />} />
               <Route path='/insight' element={<Insight />} />
               <Route path='/help' element={<Help />} />

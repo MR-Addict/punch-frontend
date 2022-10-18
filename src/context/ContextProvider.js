@@ -23,6 +23,14 @@ export const ContextProvider = ({ children }) => {
     // eslint-disable-next-line
   }, [screenSize]);
 
+  useEffect(() => {
+    const currentColor = JSON.parse(localStorage.getItem("themeColor"));
+    const currentMode = JSON.parse(localStorage.getItem("isDarkMode"));
+    if (currentColor) setThemeColor(currentColor);
+    if (currentMode) setIsDarkMode(currentMode);
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <StateContext.Provider
       value={{

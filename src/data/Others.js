@@ -1,6 +1,6 @@
 const Others = {
   breakPoint: 650,
-  isDarkMode: true,
+  isDarkMode: false,
 };
 
 export default Others;

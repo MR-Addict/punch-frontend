@@ -17,7 +17,7 @@ const Sidebar = () => {
             type='button'
             onClick={() => setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened)}
             style={{ color: themeColor }}
-            className='text-xl rounded-full p-3 hover:bg-light-gray absolute top-2 right-1'
+            className='text-xl rounded-full p-3 hover:bg-light-gray absolute top-1 right-1'
           >
             <MdOutlineCancel />
           </button>

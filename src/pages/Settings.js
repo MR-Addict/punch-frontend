@@ -16,7 +16,10 @@ const Settings = () => {
               type='button'
               className='h-10 w-10 rounded-full cursor-pointer'
               style={{ backgroundColor: item.color }}
-              onClick={() => setThemeColor(item.color)}
+              onClick={() => {
+                setThemeColor(item.color);
+                localStorage.setItem("themeColor", JSON.stringify(item.color));
+              }}
             >
               <BsCheck className={`ml-2 text-2xl text-white ${item.color === themeColor ? "block" : "hidden"}`} />
             </button>
