@@ -13,11 +13,11 @@ const App = () => {
     <Router>
       <div className={isDarkMode ? "dark" : ""} style={{ display: "flex", position: "relative" }}>
         {isMenuOpened ? (
-          <div className='fixed w-72 dark:bg-secondary-dark-bg dark:text-white text-slate-900'>
+          <div className='fixed w-72 bg-white dark:bg-secondary-dark-bg dark:text-white text-slate-900'>
             <Sidebar />
           </div>
         ) : (
-          <div className='fixed w-0 dark:bg-secondary-dark-bg dark:text-white text-slate-900'></div>
+          <div className='fixed w-0 bg-white dark:bg-secondary-dark-bg dark:text-white text-slate-900'></div>
         )}
         <div
           className={
