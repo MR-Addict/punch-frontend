@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { useStateContext } from "./context/ContextProvider";
-import { Home, Help, Settings, Insight } from "./pages";
+import { Home, Settings, Insight } from "./pages";
 import { Others } from "./data";
+import Footer from "./components/Footer";
 
 const App = () => {
   const { isMenuOpened, isDarkMode, screenSize } = useStateContext();
@@ -22,8 +23,8 @@ const App = () => {
         <div
           className={
             isMenuOpened && screenSize > Others.breakPoint
-              ? "flex flex-col dark:bg-main-dark-bg w-full min-h-screen ml-72"
-              : "flex flex-col dark:bg-main-dark-bg w-full min-h-screen"
+              ? "flex flex-col bg-light-gray dark:bg-main-dark-bg w-full min-h-screen ml-72"
+              : "flex flex-col bg-light-gray dark:bg-main-dark-bg w-full min-h-screen"
           }
         >
           <Navbar />
@@ -32,10 +33,10 @@ const App = () => {
               <Route path='/' element={<Home />} />
               <Route path='/settings' element={<Settings />} />
               <Route path='/insight' element={<Insight />} />
-              <Route path='/help' element={<Help />} />
               <Route path='/logout' />
             </Routes>
           </div>
+          <Footer />
         </div>
       </div>
     </Router>
