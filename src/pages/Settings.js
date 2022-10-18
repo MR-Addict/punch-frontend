@@ -8,7 +8,7 @@ const Settings = () => {
   const { themeColor, setThemeColor } = useStateContext();
   return (
     <div>
-      <p className='font-semibold text-xl dark:text-white'>可选主题颜色</p>
+      <p className='font-semibold text-xl'>可选主题颜色</p>
       <div className='flex gap-3'>
         {ThemeColorsData.map((item, index) => (
           <div className='mt-2 cursor-pointer flex gap-5 items-center' key={item.name}>

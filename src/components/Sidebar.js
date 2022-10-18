@@ -9,9 +9,9 @@ import { Others } from "../data";
 const Sidebar = () => {
   const { themeColor, setIsMenuOpened, screenSize } = useStateContext();
   return (
-    <div className='min-h-screen bg-white shadow-lg flex flex-col dark:bg-secondary-dark-bg'>
-      <div className='font-bold text-xl text-center mt-2 text-slate-900 dark:text-white'>
-        <span>值班笔记</span>
+    <div className='min-h-screen shadow-lg flex flex-col'>
+      <div className='font-bold text-xl text-center mt-2'>
+        <span className=''>值班笔记</span>
         {screenSize <= Others.breakPoint && (
           <button
             type='button'
@@ -38,7 +38,7 @@ const Sidebar = () => {
                 onClick={() =>
                   screenSize <= Others.breakPoint && setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened)
                 }
-                className='flex flex-row items-center text-xl text-gray-400 gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:text-white dark:hover:text-gray-400 dark:hover:bg-white'
+                className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:text-gray-400 dark:hover:bg-white'
               >
                 <span>{item.icon}</span>
                 <span>{item.title}</span>
