@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { useStateContext } from "./context/ContextProvider";
-import { Home, Settings, Insight } from "./pages";
+import { Home, Settings, Table } from "./pages";
 import { Others } from "./data";
 import Footer from "./components/Footer";
 
@@ -32,7 +32,7 @@ const App = () => {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/settings' element={<Settings />} />
-              <Route path='/insight' element={<Insight />} />
+              <Route path='/table' element={<Table />} />
               <Route path='/logout' />
             </Routes>
           </div>

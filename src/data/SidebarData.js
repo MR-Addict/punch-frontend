@@ -9,8 +9,8 @@ const SidebarData = [
     icon: <AiFillHome />,
   },
   {
-    title: "统计",
-    to: "/insight",
+    title: "表格",
+    to: "/table",
     icon: <BsFillBarChartFill />,
   },
   {
