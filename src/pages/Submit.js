@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Link } from "react";
 
 import { FormData } from "../data";
 
@@ -28,7 +28,7 @@ const Submit = () => {
         </div>
 
         <div>
-          <select id='group' name='group' className='w-full p-4 bg-slate-100 outline-none rounded-xl'>
+          <select id='group' name='group' className='w-full p-4 bg-slate-100 outline-none rounded-xl mb-6'>
             {FormData[currentDepartment].map((item) => (
               <option key={item} value={item}>
                 {item}
@@ -38,13 +38,13 @@ const Submit = () => {
         </div>
 
         <div className='form-element'>
-          <div className='pl-3 text-red-500 h-7 flex items-center err-msg text-sm'></div>
+          <div className='pl-3 text-red-500 flex items-center err-msg text-sm'></div>
           <input
             type='text'
             id='name'
             name='name'
             placeholder='姓名'
-            className='w-full p-4 bg-slate-100 rounded-xl outline-none'
+            className='w-full p-4 bg-slate-100 rounded-xl outline-none mb-6'
             onChange={(e) => {
               if (e.target.value.length === 0) {
                 setinputError((prev) => new Set(prev).add(e.target));
@@ -66,7 +66,7 @@ const Submit = () => {
         </div>
 
         <div className='form-element'>
-          <div className='pl-3 text-red-500 h-7 flex items-center err-msg text-sm'></div>
+          <div className='pl-3 text-red-500 flex items-center err-msg text-sm'></div>
           <textarea
             id='notes'
             name='notes'
@@ -98,9 +98,9 @@ const Submit = () => {
           <button className='py-3 px-10 rounded-xl bg-[#FF0063] text-white font-semibold'>提交</button>
         </div>
         <div className='text-center text-[#8750A1]'>
-          <a href='/login' className='text-sm underline'>
+          <Link to='/' className='text-sm underline'>
             我是管理员
-          </a>
+          </Link>
         </div>
       </div>
     </div>

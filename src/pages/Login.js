@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, Link } from "react";
 
 const InputField = ({ name, placeholder }) => {
+  const [inputError, setinputError] = useState(() => new Set());
+
   return (
-    <div className='flex flex-col gap-2 px-4 w-full'>
+    <div className='flex flex-col gap-2 px-4 w-full form-element'>
       <label for={name} className='pl-4'>
         {placeholder}
       </label>
@@ -12,8 +14,25 @@ const InputField = ({ name, placeholder }) => {
         name={name}
         placeholder={placeholder}
         className='p-4 bg-slate-100 rounded-xl outline-none'
+        onChange={(e) => {
+          if (e.target.value.length === 0) {
+            setinputError((prev) => new Set(prev).add(e.target));
+            e.target.closest(".form-element").querySelector(".err-msg").innerText = `${placeholder}不能为空哦`;
+          } else if (e.target.value.length > 100) {
+            setinputError((prev) => new Set(prev).add(e.target));
+            e.target.closest(".form-element").querySelector(".err-msg").innerText = `${placeholder}太长啦`;
+          } else {
+            setinputError((prev) => {
+              const next = new Set(prev);
+              next.delete(e.target);
+              return next;
+            });
+            e.target.closest(".form-element").querySelector(".err-msg").innerText = "";
+          }
+          console.log(inputError);
+        }}
       />
-      <div className='pl-4 text-red-500'></div>
+      <div className='pl-4 text-red-500 err-msg'></div>
     </div>
   );
 };
@@ -31,9 +50,9 @@ const Login = () => {
           <button className='py-3 px-10 rounded-xl bg-[#FF0063] text-white font-semibold'>登录</button>
         </div>
         <div className='text-center text-[#8750A1]'>
-          <a href='/login' className='text-sm underline'>
+          <Link to='/login' className='text-sm underline'>
             返回提交页面
-          </a>
+          </Link>
         </div>
       </div>
     </div>
