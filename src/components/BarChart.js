@@ -1,6 +1,6 @@
 import React from "react";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Chart } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -29,7 +29,7 @@ let LineOptions = {
 
 const BarChart = ({ title, data }) => {
   LineOptions.plugins.title.text = title;
-  return <Bar options={LineOptions} data={data} />;
+  return <Chart options={LineOptions} data={data} />;
 };
 
 export default BarChart;

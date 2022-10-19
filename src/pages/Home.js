@@ -34,7 +34,7 @@ const Home = () => {
       </div>
       <div className='flex items-center justify-center w-full h-[500px]'>
         <div className='h-full md:w-[90%] w-full p-4 bg-white dark:bg-secondary-dark-bg rounded-xl'>
-          <BarChart title='组别汇总' data={ChartData.BarData} />
+          <BarChart title='每周提交' data={ChartData.BarData} />
         </div>
       </div>
     </div>

@@ -21,35 +21,37 @@ const Navbar = () => {
   const { setIsMenuOpened, themeColor, isDarkMode, setIsDarkMode } = useStateContext();
 
   return (
-    <div className='flex flex-row items-center justify-between m-4'>
-      <NavButton
-        icon={<AiOutlineMenu />}
-        color={themeColor}
-        customFunc={() => setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened)}
-      />
-      <Switch
-        onChange={() => {
-          setIsDarkMode((prevIsDarkMode) => {
-            localStorage.setItem("isDarkMode", JSON.stringify(!prevIsDarkMode));
-            return !prevIsDarkMode;
-          });
-        }}
-        checked={isDarkMode}
-        uncheckedIcon={false}
-        checkedIcon={false}
-        onColor={themeColor}
-        offColor={themeColor}
-        checkedHandleIcon={
-          <div className='flex items-center justify-center w-full h-full'>
-            <BsSunFill className='text-gray-500' />
-          </div>
-        }
-        uncheckedHandleIcon={
-          <div className='flex items-center justify-center w-full h-full'>
-            <BsMoonFill className='text-gray-500' />
-          </div>
-        }
-      />
+    <div className='flex items-center justify-center p-4 w-full'>
+      <div className='w-full md:w-[90%] flex flex-row items-center justify-between '>
+        <NavButton
+          icon={<AiOutlineMenu />}
+          color={themeColor}
+          customFunc={() => setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened)}
+        />
+        <Switch
+          onChange={() => {
+            setIsDarkMode((prevIsDarkMode) => {
+              localStorage.setItem("isDarkMode", JSON.stringify(!prevIsDarkMode));
+              return !prevIsDarkMode;
+            });
+          }}
+          checked={isDarkMode}
+          uncheckedIcon={false}
+          checkedIcon={false}
+          onColor={themeColor}
+          offColor={themeColor}
+          checkedHandleIcon={
+            <div className='flex items-center justify-center w-full h-full'>
+              <BsSunFill className='text-gray-500' />
+            </div>
+          }
+          uncheckedHandleIcon={
+            <div className='flex items-center justify-center w-full h-full'>
+              <BsMoonFill className='text-gray-500' />
+            </div>
+          }
+        />
+      </div>
     </div>
   );
 };

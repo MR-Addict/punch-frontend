@@ -6,7 +6,7 @@ const StateContext = createContext();
 export const ContextProvider = ({ children }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(true);
   const [themeColor, setThemeColor] = useState(ThemeColorsData[0].color);
-  const [isDarkMode, setIsDarkMode] = useState(Others.isDarkMode);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [screenSize, setScreenSize] = useState(Others.breakPoint);
 
   useEffect(() => {
