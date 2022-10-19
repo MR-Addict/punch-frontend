@@ -1,8 +1,7 @@
 import React from "react";
 
 import { HomeCards, ChartData } from "../data";
-import AreaChart from "../components/AreaChart";
-import BarChart from "../components/BarChart";
+import { AreaChart, BarChart } from "../components";
 import { useStateContext } from "../context/ContextProvider";
 
 const Home = () => {

@@ -1,12 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
+import { Navbar, Sidebar, Footer } from "./components";
 import { useStateContext } from "./context/ContextProvider";
 import { Home, Settings, Table, Login, Submit } from "./pages";
 import { Others } from "./data";
-import Footer from "./components/Footer";
 
 const App = () => {
   const { isMenuOpened, isDarkMode, screenSize } = useStateContext();
