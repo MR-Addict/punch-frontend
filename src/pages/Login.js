@@ -1,11 +1,11 @@
-import React, { useState, Link } from "react";
+import React, { useState } from "react";
 
 const InputField = ({ name, placeholder }) => {
   const [inputError, setinputError] = useState(() => new Set());
 
   return (
     <div className='flex flex-col gap-2 px-4 w-full form-element'>
-      <label for={name} className='pl-4'>
+      <label htmlFor={name} className='pl-4'>
         {placeholder}
       </label>
       <input
@@ -39,21 +39,19 @@ const InputField = ({ name, placeholder }) => {
 
 const Login = () => {
   return (
-    <div className='flex flex-col gap-1 items-center justify-center w-screen min-h-screen bg-gradient-to-br from-[#80ffdb] to-[#0077b6]'>
-      <div className='bg-white p-10 rounded-xl w-[600px] flex flex-col gap-4'>
-        <div className='w-full text-center font-semibold text-4xl text-gray-500'>
-          <h1>请先登录</h1>
-        </div>
-        <InputField name='username' placeholder='用户名' />
-        <InputField name='password' placeholder='密码' />
-        <div className='w-full text-center'>
-          <button className='py-3 px-10 rounded-xl bg-[#FF0063] text-white font-semibold'>登录</button>
-        </div>
-        <div className='text-center text-[#8750A1]'>
-          <Link to='/login' className='text-sm underline'>
-            返回提交页面
-          </Link>
-        </div>
+    <div className='bg-white p-3 md:p-10 md:my-0 my-10 rounded-xl min-w-[90%] md:min-w-[600px] flex flex-col gap-4'>
+      <div className='w-full text-center font-semibold text-3xl md:text-4xl text-gray-500'>
+        <h1>请先登录</h1>
+      </div>
+      <InputField name='username' placeholder='用户名' />
+      <InputField name='password' placeholder='密码' />
+      <div className='w-full text-center'>
+        <button className='py-3 px-10 rounded-xl bg-[#FF0063] text-white font-semibold'>登录</button>
+      </div>
+      <div className='text-center text-[#8750A1]'>
+        <a href='/' className='text-sm underline'>
+          返回提交页面
+        </a>
       </div>
     </div>
   );
