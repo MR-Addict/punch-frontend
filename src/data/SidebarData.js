@@ -1,5 +1,5 @@
 import { AiFillHome } from "react-icons/ai";
-import { IoIosSettings, IoMdLogOut } from "react-icons/io";
+import { IoIosSettings } from "react-icons/io";
 import { BsFillBarChartFill } from "react-icons/bs";
 
 const SidebarData = [
@@ -17,11 +17,6 @@ const SidebarData = [
     title: "设置",
     to: "/settings",
     icon: <IoIosSettings />,
-  },
-  {
-    title: "退出",
-    to: "/login",
-    icon: <IoMdLogOut />,
   },
 ];
 

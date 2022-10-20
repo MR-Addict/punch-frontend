@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+
 import { ThemeColorsData, Others } from "../data";
+import { testcookie } from "../api";
 
 const StateContext = createContext();
 
@@ -8,6 +10,7 @@ export const ContextProvider = ({ children }) => {
   const [themeColor, setThemeColor] = useState(ThemeColorsData[0].color);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [screenSize, setScreenSize] = useState(Others.breakPoint);
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -31,6 +34,13 @@ export const ContextProvider = ({ children }) => {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    testcookie((data) => {
+      if (data.status) setIsLogin(true);
+    });
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <StateContext.Provider
       value={{
@@ -42,6 +52,8 @@ export const ContextProvider = ({ children }) => {
         setIsDarkMode,
         screenSize,
         setScreenSize,
+        isLogin,
+        setIsLogin,
       }}
     >
       {children}

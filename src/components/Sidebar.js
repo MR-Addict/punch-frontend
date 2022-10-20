@@ -1,13 +1,14 @@
 import React from "react";
-
-import { SidebarData } from "../data";
 import { NavLink } from "react-router-dom";
-import { useStateContext } from "../context/ContextProvider";
 import { MdOutlineCancel } from "react-icons/md";
-import { Others } from "../data";
+import { IoMdLogOut } from "react-icons/io";
+
+import { useStateContext } from "../context/ContextProvider";
+import { SidebarData, Others } from "../data";
+import { logout } from "../api";
 
 const Sidebar = () => {
-  const { themeColor, setIsMenuOpened, screenSize } = useStateContext();
+  const { themeColor, setIsMenuOpened, screenSize, setIsLogin } = useStateContext();
   return (
     <div className='min-h-screen shadow-lg flex flex-col'>
       <div className='font-bold text-xl text-center mt-2'>
@@ -35,9 +36,9 @@ const Sidebar = () => {
                   backgroundColor: isActive ? themeColor : "",
                   color: isActive ? "white" : "",
                 })}
-                onClick={() =>
-                  screenSize <= Others.breakPoint && setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened)
-                }
+                onClick={() => {
+                  screenSize <= Others.breakPoint && setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened);
+                }}
                 className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:text-gray-400 dark:hover:bg-white'
               >
                 <span>{item.icon}</span>
@@ -46,6 +47,21 @@ const Sidebar = () => {
             </div>
           );
         })}
+        <div>
+          <NavLink
+            to='/'
+            onClick={() => {
+              logout((data) => data);
+              setIsLogin(false);
+            }}
+            className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:text-gray-400 dark:hover:bg-white'
+          >
+            <span>
+              <IoMdLogOut />
+            </span>
+            <span>退出</span>
+          </NavLink>
+        </div>
       </div>
     </div>
   );

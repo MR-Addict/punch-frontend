@@ -1,16 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { AdminLayout, LoginLayout } from "./layout";
+import { AdminLayout } from "./layout";
 import { Home, Settings, Table, Login } from "./pages";
+import { useStateContext } from "./context/ContextProvider";
 
 const App = () => {
+  const { isLogin } = useStateContext();
+  if (!isLogin) {
+    return <Login />;
+  }
   return (
     <Router>
       <Routes>
-        <Route element={<LoginLayout />}>
-          <Route path='/login' element={<Login />} />
-        </Route>
         <Route element={<AdminLayout />}>
           <Route path='/' element={<Home />} />
           <Route path='/table' element={<Table />} />
