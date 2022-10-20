@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { MdOutlineCancel } from "react-icons/md";
 import { IoMdLogOut } from "react-icons/io";
+import { useCookies } from "react-cookie";
 
 import { useStateContext } from "../context/ContextProvider";
 import { SidebarData, Others } from "../data";
@@ -9,6 +10,7 @@ import { logout } from "../api";
 
 const Sidebar = () => {
   const { themeColor, setIsMenuOpened, screenSize, setIsLogin } = useStateContext();
+  const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]); // eslint-disable-line no-unused-vars
   return (
     <div className='min-h-screen shadow-lg flex flex-col'>
       <div className='font-bold text-xl text-center mt-2'>
@@ -47,20 +49,18 @@ const Sidebar = () => {
             </div>
           );
         })}
-        <div>
-          <NavLink
-            to='/'
-            onClick={() => {
-              logout((data) => data);
-              setIsLogin(false);
-            }}
-            className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:text-gray-400 dark:hover:bg-white'
-          >
-            <span>
-              <IoMdLogOut />
-            </span>
-            <span>退出</span>
-          </NavLink>
+        <div
+          onClick={() => {
+            if (document.cookie.includes("accessToken")) removeCookie("accessToken");
+            logout((data) => data);
+            setIsLogin(false);
+          }}
+          className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:text-gray-400 dark:hover:bg-white cursor-pointer'
+        >
+          <span>
+            <IoMdLogOut />
+          </span>
+          <span>退出</span>
         </div>
       </div>
     </div>
