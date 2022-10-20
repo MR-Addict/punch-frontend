@@ -1,2 +1,2 @@
 export { default as AdminLayout } from "./AdminLayout";
-export { default as SubmitLayout } from "./SubmitLayout";
+export { default as LoginLayout } from "./LoginLayout";

@@ -48,11 +48,6 @@ const Login = () => {
       <div className='w-full text-center'>
         <button className='py-3 px-10 rounded-xl bg-[#FF0063] text-white font-semibold'>登录</button>
       </div>
-      <div className='text-center text-[#8750A1]'>
-        <a href='/' className='text-sm underline'>
-          返回提交页面
-        </a>
-      </div>
     </div>
   );
 };
