@@ -26,8 +26,34 @@ const Login = () => {
         <div className='w-full text-center font-semibold text-3xl md:text-4xl text-gray-500'>
           <h1>请先登录</h1>
         </div>
-        <InputField name='username' placeholder='用户名' />
-        <InputField name='password' placeholder='密码' />
+        <div className='flex flex-col gap-2 px-4 w-full form-element'>
+          <label htmlFor='username' className='pl-4'>
+            用户名
+          </label>
+          <input
+            type='text'
+            id='username'
+            name='username'
+            required
+            placeholder='用户名'
+            className='p-4 bg-slate-100 rounded-xl outline-none'
+          />
+          <div className='pl-4 text-red-500 err-msg'></div>
+        </div>
+        <div className='flex flex-col gap-2 px-4 w-full form-element'>
+          <label htmlFor='password' className='pl-4'>
+            密码
+          </label>
+          <input
+            type='password'
+            id='password'
+            name='password'
+            required
+            placeholder='密码'
+            className='p-4 bg-slate-100 rounded-xl outline-none'
+          />
+          <div className='pl-4 text-red-500 err-msg'></div>
+        </div>
         <div className='w-full text-center'>
           <button
             className='py-3 px-10 rounded-xl bg-[#FF0063] text-white font-semibold'
@@ -56,25 +82,6 @@ const Login = () => {
         </div>
       </div>
       <Footer />
-    </div>
-  );
-};
-
-const InputField = ({ name, placeholder }) => {
-  return (
-    <div className='flex flex-col gap-2 px-4 w-full form-element'>
-      <label htmlFor={name} className='pl-4'>
-        {placeholder}
-      </label>
-      <input
-        type='text'
-        id={name}
-        name={name}
-        required
-        placeholder={placeholder}
-        className='p-4 bg-slate-100 rounded-xl outline-none'
-      />
-      <div className='pl-4 text-red-500 err-msg'></div>
     </div>
   );
 };

@@ -4,11 +4,11 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
 import { useStateContext } from "../context/ContextProvider";
-import { getTable, logoutApi, downloadExcel } from "../api";
+import { getTable, downloadExcel } from "../api";
 
 const Table = () => {
   const [rows, setRows] = useState([]);
-  const { themeColor, isDarkMode, setIsLogin } = useStateContext();
+  const { themeColor, isDarkMode } = useStateContext();
   const defaultColDef = { sortable: true, resizable: true, flex: 1 };
   const gridRef = useRef();
   const columns = [
@@ -25,8 +25,6 @@ const Table = () => {
         const tableData = JSON.parse(data.message);
         setRows(tableData);
       } else {
-        logoutApi((data) => data);
-        setIsLogin(false);
         console.log(data.message);
       }
     });
