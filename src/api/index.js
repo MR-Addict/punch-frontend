@@ -1,5 +1,5 @@
-export { default as login } from "./login";
-export { default as logout } from "./logout";
-export { default as testcookie } from "./testcookie";
-export { default as gettable } from "./gettable";
+export { default as loginApi } from "./loginApi";
+export { default as logoutApi } from "./logoutApi";
+export { default as testCookie } from "./testCookie";
+export { default as getTable } from "./getTable";
 export { default as downloadExcel } from "./downloadExcel";

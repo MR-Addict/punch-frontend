@@ -6,7 +6,7 @@ import { useCookies } from "react-cookie";
 
 import { useStateContext } from "../context/ContextProvider";
 import { SidebarData, Others } from "../data";
-import { logout } from "../api";
+import { logoutApi } from "../api";
 
 const Sidebar = () => {
   const { themeColor, setIsMenuOpened, screenSize, setIsLogin } = useStateContext();
@@ -52,7 +52,7 @@ const Sidebar = () => {
         <div
           onClick={() => {
             if (document.cookie.includes("accessToken")) removeCookie("accessToken");
-            logout((data) => data);
+            logoutApi((data) => data);
             setIsLogin(false);
           }}
           className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:text-gray-400 dark:hover:bg-white cursor-pointer'

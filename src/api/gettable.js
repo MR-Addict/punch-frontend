@@ -1,6 +1,6 @@
 import { Others } from "../data";
 
-const logout = async (customFunc) => {
+const getTable = async (customFunc) => {
   await fetch(Others.backendURL + "table", {
     credentials: "include",
     method: "POST",
@@ -14,4 +14,4 @@ const logout = async (customFunc) => {
     });
 };
 
-export default logout;
+export default getTable;

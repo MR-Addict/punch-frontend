@@ -4,7 +4,7 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
 import { useStateContext } from "../context/ContextProvider";
-import { gettable, logout, downloadExcel } from "../api";
+import { getTable, logoutApi, downloadExcel } from "../api";
 
 const Table = () => {
   const [rows, setRows] = useState([]);
@@ -20,12 +20,12 @@ const Table = () => {
   ];
 
   const updateTable = () => {
-    gettable((data) => {
+    getTable((data) => {
       if (data.status) {
         const tableData = JSON.parse(data.message);
         setRows(tableData);
       } else {
-        logout((data) => data);
+        logoutApi((data) => data);
         setIsLogin(false);
         console.log(data.message);
       }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 
 import { Footer } from "../components";
-import { login } from "../api";
+import { loginApi } from "../api";
 import { useStateContext } from "../context/ContextProvider";
 
 const Login = () => {
@@ -39,7 +39,7 @@ const Login = () => {
                 InputFields[1].closest(".form-element").querySelector(".err-msg").innerText = "密码不能为空哦";
               else InputFields[1].closest(".form-element").querySelector(".err-msg").innerText = "";
               if (InputFields[0].value.length && InputFields[1].value.length) {
-                login(InputFields[0].value, InputFields[1].value, (data) => {
+                loginApi(InputFields[0].value, InputFields[1].value, (data) => {
                   if (data.status) {
                     setIsLogin(true);
                     handleSetCookie(data.message);

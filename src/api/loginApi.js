@@ -1,6 +1,6 @@
 import { Others } from "../data";
 
-const login = async (username, password, customFunc) => {
+const loginApi = async (username, password, customFunc) => {
   await fetch(Others.backendURL + "login", {
     credentials: "include",
     method: "POST",
@@ -16,4 +16,4 @@ const login = async (username, password, customFunc) => {
     });
 };
 
-export default login;
+export default loginApi;

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 import { ThemeColorsData, Others } from "../data";
-import { testcookie } from "../api";
+import { testCookie } from "../api";
 
 const StateContext = createContext();
 
@@ -35,7 +35,7 @@ export const ContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    testcookie((data) => {
+    testCookie((data) => {
       if (data.status) setIsLogin(true);
     });
     // eslint-disable-next-line
