@@ -1,20 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import { AgGridReact } from "ag-grid-react";
-import * as XLSX from "xlsx";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
 import { useStateContext } from "../context/ContextProvider";
-import { gettable } from "../api";
-import { logout } from "../api";
-
-const downloadExcel = (data) => {
-  let worksheet = XLSX.utils.json_to_sheet(data);
-  const workbook = XLSX.utils.book_new();
-  worksheet["!cols"] = [{ wch: 10 }, { wch: 10 }, { wch: 10 }, { wch: 10 }, { wch: 100 }];
-  XLSX.utils.book_append_sheet(workbook, worksheet, "值班笔记");
-  XLSX.writeFile(workbook, "值班笔记.xlsx");
-};
+import { gettable, logout, downloadExcel } from "../api";
 
 const Table = () => {
   const [rows, setRows] = useState([]);
@@ -54,7 +44,7 @@ const Table = () => {
           <button
             className='p-2 mb-2 rounded-xl text-sm font-semibold text-white'
             style={{ background: themeColor }}
-            onClick={() => downloadExcel(rows)}
+            onClick={() => downloadExcel()}
           >
             导出Excel
           </button>

@@ -1,6 +1,6 @@
 import { Others } from "../data";
 
-const logout = async (customFunc) => {
+const testcookie = async (customFunc) => {
   await fetch(Others.backendURL + "testcookie", {
     credentials: "include",
     method: "GET",
@@ -14,4 +14,4 @@ const logout = async (customFunc) => {
     });
 };
 
-export default logout;
+export default testcookie;
