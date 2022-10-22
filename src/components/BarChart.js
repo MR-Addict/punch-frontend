@@ -1,13 +1,13 @@
 import React from "react";
-import { Chart } from "react-chartjs-2";
+import { Chart as MultiCharts } from "react-chartjs-2";
 import { useState, useEffect } from "react";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+import { Chart, registerables } from "chart.js";
 
 import { getWeeksInsight } from "../api";
 import { useStateContext } from "../context/ContextProvider";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+Chart.register(...registerables);
 
 const BarChart = () => {
   const { isDarkMode } = useStateContext();
@@ -108,7 +108,7 @@ const BarChart = () => {
     });
     // eslint-disable-next-line
   }, []);
-  return <Chart options={LineOptions} plugins={[ChartDataLabels]} data={BarData} />;
+  return <MultiCharts options={LineOptions} plugins={[ChartDataLabels]} data={BarData} />;
 };
 
 export default BarChart;

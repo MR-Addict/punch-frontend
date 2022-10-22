@@ -2,22 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Filler,
-  Legend,
-} from "chart.js";
+import { Chart, registerables } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { getDaysInsight } from "../api";
 import { useStateContext } from "../context/ContextProvider";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
+Chart.register(...registerables);
 
 const getDaysInsightKeys = (day_begin, day_end) => {
   const array = [];
