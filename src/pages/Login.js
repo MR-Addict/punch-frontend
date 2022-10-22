@@ -28,7 +28,6 @@ const Login = () => {
             type='text'
             id='username'
             name='username'
-            required
             placeholder='用户名'
             className='p-4 bg-slate-100 rounded-xl outline-none'
           />
@@ -42,7 +41,6 @@ const Login = () => {
             type='password'
             id='password'
             name='password'
-            required
             placeholder='密码'
             className='p-4 bg-slate-100 rounded-xl outline-none'
           />
@@ -62,6 +60,7 @@ const Login = () => {
                 loginApi(InputFields[0].value, InputFields[1].value, (data) => {
                   if (data.status) {
                     setIsLogin(true);
+                    setisLoginFailed(false);
                   } else {
                     setIsLogin(false);
                     setisLoginFailed(true);
