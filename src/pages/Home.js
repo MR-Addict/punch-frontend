@@ -41,12 +41,12 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <div className='flex items-center justify-center w-full h-[500px]'>
+      <div className='flex items-center justify-center w-full h-[350px] md:h-[500px]'>
         <div className='h-full md:w-[90%] w-full p-4 overflow-x-auto bg-white dark:bg-secondary-dark-bg rounded-xl'>
           <AreaChart />
         </div>
       </div>
-      <div className='flex items-center justify-center w-full h-[500px]'>
+      <div className='flex items-center justify-center w-full h-[350px] md:h-[500px]'>
         <div className='h-full md:w-[90%] w-full p-4 bg-white dark:bg-secondary-dark-bg rounded-xl'>
           <BarChart />
         </div>
