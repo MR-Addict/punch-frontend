@@ -1,0 +1,8 @@
+version: "3"
+services:
+  punch-frontend:
+    image: mraddict063/punch-frontend
+    container_name: punch-frontend
+    ports: 
+      - 8089:3000
+    restart: unless-stopped
