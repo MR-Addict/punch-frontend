@@ -1,6 +1,6 @@
 const Others = {
   breakPoint: 650,
-  backendURL: "http://localhost:8083/",
+  backendURL: "https://punch.mraddict.top/",
 };
 
 export default Others;

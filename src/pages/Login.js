@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useCookies } from "react-cookie";
 
 import { Footer } from "../components";
 import { loginApi } from "../api";
@@ -8,12 +7,7 @@ import { useStateContext } from "../context/ContextProvider";
 const Login = () => {
   const { setIsLogin } = useStateContext();
   const [isLoginFailed, setisLoginFailed] = useState(false);
-  const [cookies, setCookie] = useCookies(["accessToken"]); // eslint-disable-line no-unused-vars
   const InputFields = document.getElementsByTagName("input");
-
-  const handleSetCookie = (accessToken) => {
-    setCookie("accessToken", accessToken, { path: "/" });
-  };
 
   return (
     <div className='flex flex-col items-center justify-center w-screen min-h-screen bg-gradient-to-br from-[#80ffdb] to-[#0077b6]'>
@@ -68,7 +62,6 @@ const Login = () => {
                 loginApi(InputFields[0].value, InputFields[1].value, (data) => {
                   if (data.status) {
                     setIsLogin(true);
-                    handleSetCookie(data.message);
                   } else {
                     setIsLogin(false);
                     setisLoginFailed(true);

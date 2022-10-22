@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { MdOutlineCancel } from "react-icons/md";
 import { IoMdLogOut } from "react-icons/io";
-import { useCookies } from "react-cookie";
 
 import { useStateContext } from "../context/ContextProvider";
 import { SidebarData, Others } from "../data";
@@ -10,7 +9,6 @@ import { logoutApi } from "../api";
 
 const Sidebar = () => {
   const { themeColor, setIsMenuOpened, screenSize, setIsLogin } = useStateContext();
-  const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]); // eslint-disable-line no-unused-vars
   return (
     <div className='min-h-screen shadow-lg flex flex-col'>
       <div className='font-bold text-xl text-center mt-2'>
@@ -51,7 +49,6 @@ const Sidebar = () => {
         })}
         <div
           onClick={() => {
-            if (document.cookie.includes("accessToken")) removeCookie("accessToken");
             logoutApi((data) => data);
             setIsLogin(false);
           }}
