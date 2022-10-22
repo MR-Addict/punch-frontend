@@ -8,5 +8,6 @@ RUN npm run build
 FROM node:16-alpine
 WORKDIR /usr/src/app
 COPY --from=builder /usr/src/app/build /usr/src/app
+RUN npm install serve -g
 EXPOSE 3000
-CMD [ "npx", "serve" ]
+CMD [ "serve" ]
