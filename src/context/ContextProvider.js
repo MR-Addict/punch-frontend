@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 import { ThemeColorsData, Others } from "../data";
-import { testCookie } from "../api";
 
 const StateContext = createContext();
 
@@ -31,13 +30,6 @@ export const ContextProvider = ({ children }) => {
     const currentMode = JSON.parse(localStorage.getItem("isDarkMode"));
     if (currentColor) setThemeColor(currentColor);
     if (currentMode) setIsDarkMode(currentMode);
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    testCookie((data) => {
-      if (data.status) setIsLogin(true);
-    });
     // eslint-disable-next-line
   }, []);
 
