@@ -9,13 +9,13 @@ import { getTable, downloadExcel } from "../api";
 const Table = () => {
   const [rows, setRows] = useState([]);
   const { themeColor, isDarkMode, setIsLogin } = useStateContext();
-  const defaultColDef = { sortable: true, resizable: true, flex: 1 };
+  const defaultColDef = { sortable: true, resizable: true, flex: 1, filter: true };
   const gridRef = useRef();
   const columns = [
-    { headerName: "ID", field: "id", maxWidth: 80 },
-    { headerName: "组别", field: "group", maxWidth: 100 },
-    { headerName: "姓名", field: "name", maxWidth: 100 },
-    { headerName: "日期", field: "date", maxWidth: 110 },
+    { headerName: "序号", field: "id", minWidth: 80 },
+    { headerName: "日期", field: "date", minWidth: 110 },
+    { headerName: "组别", field: "group", minWidth: 100 },
+    { headerName: "姓名", field: "name", minWidth: 100 },
     { headerName: "笔记", field: "notes", minWidth: 930, autoHeight: true, wrapText: true },
   ];
 
@@ -55,7 +55,7 @@ const Table = () => {
             columnDefs={columns}
             defaultColDef={defaultColDef}
             pagination={true}
-            paginationPageSize={50}
+            paginationPageSize={100}
             alwaysShowHorizontalScroll={true}
           />
         </div>
