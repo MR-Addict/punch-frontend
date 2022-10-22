@@ -1,7 +1,7 @@
-import { Others } from "../data";
+import { Config } from "../data";
 
 const getTable = async (customFunc) => {
-  await fetch(Others.backendURL + "/api/v1/table", {
+  await fetch(Config.backendURL + "/api/v1/table", {
     credentials: "include",
     method: "POST",
   })

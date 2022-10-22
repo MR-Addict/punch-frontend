@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import { Navbar, Sidebar, Footer } from "../components";
 import { useStateContext } from "../context/ContextProvider";
-import { Others } from "../data";
+import { Config } from "../data";
 
 const AdminLayout = () => {
   const { isMenuOpened, isDarkMode, screenSize } = useStateContext();
@@ -19,7 +19,7 @@ const AdminLayout = () => {
       )}
       <div
         className={
-          isMenuOpened && screenSize > Others.breakPoint
+          isMenuOpened && screenSize > Config.breakPoint
             ? "flex flex-col bg-light-gray dark:bg-main-dark-bg w-full min-h-screen ml-72"
             : "flex flex-col bg-light-gray dark:bg-main-dark-bg w-full min-h-screen"
         }

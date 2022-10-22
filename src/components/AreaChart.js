@@ -38,7 +38,7 @@ const getDaysInsightValues = (days, tmpInsightKeys) => {
 };
 
 const AreaChart = () => {
-  const { isDarkMode } = useStateContext();
+  const { isDarkMode, setIsLogin } = useStateContext();
   const [insightKeys, setInsightKeys] = useState([]);
   const [insightValues, setInsightValues] = useState([]);
 
@@ -94,6 +94,7 @@ const AreaChart = () => {
         setInsightKeys(tmpInsightKeys);
         setInsightValues(getDaysInsightValues(JSON.parse(data.message), tmpInsightKeys));
       } else {
+        setIsLogin(false);
         console.log(data.message);
       }
     });

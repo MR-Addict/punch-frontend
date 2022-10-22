@@ -8,7 +8,7 @@ import { getTable, downloadExcel } from "../api";
 
 const Table = () => {
   const [rows, setRows] = useState([]);
-  const { themeColor, isDarkMode } = useStateContext();
+  const { themeColor, isDarkMode, setIsLogin } = useStateContext();
   const defaultColDef = { sortable: true, resizable: true, flex: 1 };
   const gridRef = useRef();
   const columns = [
@@ -25,6 +25,7 @@ const Table = () => {
         const tableData = JSON.parse(data.message);
         setRows(tableData);
       } else {
+        setIsLogin(false);
         console.log(data.message);
       }
     });

@@ -1,7 +1,7 @@
-import { Others } from "../data";
+import { Config } from "../data";
 
 const loginApi = async (username, password, customFunc) => {
-  await fetch(Others.backendURL + "/api/v1/login", {
+  await fetch(Config.backendURL + "/api/v1/login", {
     credentials: "include",
     method: "POST",
     body: new URLSearchParams({ username, password }),

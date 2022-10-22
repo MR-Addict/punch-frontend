@@ -1,7 +1,7 @@
-import { Others } from "../data";
+import { Config } from "../data";
 
 const logoutApi = async (customFunc) => {
-  await fetch(Others.backendURL + "/api/v1/logout", {
+  await fetch(Config.backendURL + "/api/v1/logout", {
     credentials: "include",
     method: "GET",
   })

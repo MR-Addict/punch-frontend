@@ -1,7 +1,7 @@
-import { Others } from "../data";
+import { Config } from "../data";
 
 const getStatusCards = async (customFunc) => {
-  await fetch(Others.backendURL + "/api/v1/status/cards", {
+  await fetch(Config.backendURL + "/api/v1/status/cards", {
     credentials: "include",
     method: "GET",
   })

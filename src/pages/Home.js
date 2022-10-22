@@ -7,13 +7,14 @@ import { useStateContext } from "../context/ContextProvider";
 import { getStatusCards } from "../api";
 
 const Home = () => {
-  const { themeColor } = useStateContext();
+  const { themeColor, setIsLogin } = useStateContext();
   const [statusCards, setStatusCards] = useState({});
 
   useEffect(() => {
     getStatusCards((data) => {
       if (data.status) setStatusCards(JSON.parse(data.message)[0]);
       else {
+        setIsLogin(false);
         console.log(data.message);
       }
     });

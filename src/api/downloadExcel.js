@@ -1,7 +1,7 @@
-import { Others } from "../data";
+import { Config } from "../data";
 
 const downloadExcel = async () => {
-  await fetch(Others.backendURL + "/api/v1/export", {
+  await fetch(Config.backendURL + "/api/v1/export", {
     credentials: "include",
     method: "GET",
   }).then((res) => {

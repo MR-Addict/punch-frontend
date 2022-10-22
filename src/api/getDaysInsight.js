@@ -1,7 +1,7 @@
-import { Others } from "../data";
+import { Config } from "../data";
 
 const getDaysInsight = async (customFunc) => {
-  await fetch(Others.backendURL + "/api/v1/status/days", {
+  await fetch(Config.backendURL + "/api/v1/status/days", {
     credentials: "include",
     method: "GET",
   })

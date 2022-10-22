@@ -4,7 +4,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import { IoMdLogOut } from "react-icons/io";
 
 import { useStateContext } from "../context/ContextProvider";
-import { SidebarData, Others } from "../data";
+import { SidebarData, Config } from "../data";
 import { logoutApi } from "../api";
 
 const Sidebar = () => {
@@ -13,7 +13,7 @@ const Sidebar = () => {
     <div className='min-h-screen shadow-lg flex flex-col'>
       <div className='font-bold text-xl text-center mt-2'>
         <span className=''>值班笔记</span>
-        {screenSize <= Others.breakPoint && (
+        {screenSize <= Config.breakPoint && (
           <button
             type='button'
             onClick={() => setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened)}
@@ -37,7 +37,7 @@ const Sidebar = () => {
                   color: isActive ? "white" : "",
                 })}
                 onClick={() => {
-                  screenSize <= Others.breakPoint && setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened);
+                  screenSize <= Config.breakPoint && setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened);
                 }}
                 className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:text-gray-400 dark:hover:bg-white'
               >

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-import { ThemeColorsData, Others } from "../data";
+import { ThemeColorsData, Config } from "../data";
 
 const StateContext = createContext();
 
@@ -8,7 +8,7 @@ export const ContextProvider = ({ children }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(true);
   const [themeColor, setThemeColor] = useState(ThemeColorsData[0].color);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [screenSize, setScreenSize] = useState(Others.breakPoint);
+  const [screenSize, setScreenSize] = useState(Config.breakPoint);
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export const ContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (screenSize <= Others.breakPoint) setIsMenuOpened(false);
+    if (screenSize <= Config.breakPoint) setIsMenuOpened(false);
     else setIsMenuOpened(true);
     // eslint-disable-next-line
   }, [screenSize]);

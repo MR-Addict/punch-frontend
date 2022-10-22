@@ -10,7 +10,7 @@ import { useStateContext } from "../context/ContextProvider";
 Chart.register(...registerables);
 
 const BarChart = () => {
-  const { isDarkMode } = useStateContext();
+  const { isDarkMode, setIsLogin } = useStateContext();
   const [insightKeys, setInsightKeys] = useState([]);
   const [insightValues, setInsightValues] = useState({});
 
@@ -95,16 +95,21 @@ const BarChart = () => {
 
   useEffect(() => {
     getWeeksInsight((data) => {
-      let tmpInsightValues = {};
-      const JSONData = JSON.parse(data.message);
-      const tmpInsightKeys = JSONData[0].map((item) => "第" + item["周次"] + "周");
-      tmpInsightValues["航模组"] = JSONData[0].map((item) => item["航模组"]);
-      tmpInsightValues["编程组"] = JSONData[1].map((item) => item["编程组"]);
-      tmpInsightValues["电子组"] = JSONData[2].map((item) => item["电子组"]);
-      tmpInsightValues["静模组"] = JSONData[3].map((item) => item["静模组"]);
-      tmpInsightValues["周次"] = JSONData[4].map((item) => item["周次"]);
-      setInsightKeys(tmpInsightKeys);
-      setInsightValues(tmpInsightValues);
+      if (data.status) {
+        let tmpInsightValues = {};
+        const JSONData = JSON.parse(data.message);
+        const tmpInsightKeys = JSONData[0].map((item) => "第" + item["周次"] + "周");
+        tmpInsightValues["航模组"] = JSONData[0].map((item) => item["航模组"]);
+        tmpInsightValues["编程组"] = JSONData[1].map((item) => item["编程组"]);
+        tmpInsightValues["电子组"] = JSONData[2].map((item) => item["电子组"]);
+        tmpInsightValues["静模组"] = JSONData[3].map((item) => item["静模组"]);
+        tmpInsightValues["周次"] = JSONData[4].map((item) => item["周次"]);
+        setInsightKeys(tmpInsightKeys);
+        setInsightValues(tmpInsightValues);
+      } else {
+        setIsLogin(false);
+        console.log(data.message);
+      }
     });
     // eslint-disable-next-line
   }, []);
