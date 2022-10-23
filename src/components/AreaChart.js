@@ -9,32 +9,15 @@ import { useStateContext } from "../context/ContextProvider";
 
 Chart.register(...registerables);
 
-const getDaysInsightKeys = (day_begin, day_end) => {
-  const array = [];
-  const dt = new Date(day_begin);
-  for (
-    dt.setDate(dt.getDate() + 1);
-    dt <= new Date(day_end).setDate(new Date(day_end).getDate() + 1);
-    dt.setDate(dt.getDate() + 1)
-  ) {
-    const temp_date = dt.toISOString().slice(5, 10);
-    array.push(Number(temp_date.split("-")[0]) + "-" + Number(temp_date.split("-")[1]));
-  }
-  return array;
+const getDaysInsightKeys = (days) => {
+  return days.map((item) => {
+    const temp_date = new Date(item["时间"]).toISOString().slice(5, 10);
+    return Number(temp_date.split("-")[0]) + "." + Number(temp_date.split("-")[1]);
+  });
 };
 
-const getDaysInsightValues = (days, tmpInsightKeys) => {
-  const array = [];
-  tmpInsightKeys.forEach((prop) => {
-    array.push(0);
-    days.forEach((day) => {
-      if (new Date(day["时间"].slice(5)).getTime() === new Date(prop).getTime()) {
-        array.pop();
-        array.push(Number(day["次数"]));
-      }
-    });
-  });
-  return array;
+const getDaysInsightValues = (days) => {
+  return days.map((item) => Number(item["次数"]));
 };
 
 const AreaChart = () => {
@@ -69,8 +52,7 @@ const AreaChart = () => {
         formatter: (value, context) => {
           const dataPoints = context.dataset.data;
           const sum = parseInt(dataPoints.reduce((prop, a) => prop + a, 0));
-          if (sum) return `${value}`;
-          else return "error";
+          return sum ? `${value}` : "error";
         },
         labels: {
           title: {
@@ -87,12 +69,8 @@ const AreaChart = () => {
   useEffect(() => {
     getDaysInsight((data) => {
       if (data.status) {
-        const tmpInsightKeys = getDaysInsightKeys(
-          JSON.parse(data.message)[0]["时间"],
-          JSON.parse(data.message).slice(-1)[0]["时间"]
-        );
-        setInsightKeys(tmpInsightKeys);
-        setInsightValues(getDaysInsightValues(JSON.parse(data.message), tmpInsightKeys));
+        setInsightKeys(getDaysInsightKeys(JSON.parse(data.message)));
+        setInsightValues(getDaysInsightValues(JSON.parse(data.message)));
       } else {
         setIsLogin(false);
         console.log(data.message);
