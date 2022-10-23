@@ -96,14 +96,12 @@ const BarChart = () => {
   useEffect(() => {
     getWeeksInsight((data) => {
       if (data.status) {
-        let tmpInsightValues = {};
         const JSONData = JSON.parse(data.message);
         const tmpInsightKeys = JSONData[0].map((item) => "第" + item["周次"] + "周");
-        tmpInsightValues["航模组"] = JSONData[0].map((item) => item["航模组"]);
-        tmpInsightValues["编程组"] = JSONData[1].map((item) => item["编程组"]);
-        tmpInsightValues["电子组"] = JSONData[2].map((item) => item["电子组"]);
-        tmpInsightValues["静模组"] = JSONData[3].map((item) => item["静模组"]);
-        tmpInsightValues["周次"] = JSONData[4].map((item) => item["周次"]);
+        const tmpInsightValues = { 航模组: [], 编程组: [], 电子组: [], 静模组: [], 周次: [] };
+        Object.keys(tmpInsightValues).forEach((prop, index) => {
+          tmpInsightValues[prop] = JSONData[index].map((item) => item[prop]);
+        });
         setInsightKeys(tmpInsightKeys);
         setInsightValues(tmpInsightValues);
       } else {
