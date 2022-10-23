@@ -5,9 +5,5 @@ RUN npm install -ci
 COPY . .
 RUN npm run build
 
-FROM node:16-alpine
-WORKDIR /usr/src/app
-COPY --from=builder /usr/src/app/build /usr/src/app
-RUN npm install serve -g
-EXPOSE 3000
-CMD [ "serve" ]
+FROM nginx:stable-alpine
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html
