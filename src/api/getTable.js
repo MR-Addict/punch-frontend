@@ -3,7 +3,7 @@ import { Config } from "../data";
 const getTable = async (customFunc) => {
   await fetch(Config.backendURL + "/api/v1/table", {
     credentials: "include",
-    method: "POST",
+    method: "GET",
   })
     .then((res) => res.json())
     .then((data) => {
