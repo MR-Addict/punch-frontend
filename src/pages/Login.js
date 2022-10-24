@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaUserAlt, FaLock } from "react-icons/fa";
 
 import { Footer } from "../components";
 import { loginApi } from "../api";
@@ -25,22 +26,22 @@ const Login = () => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center w-screen min-h-screen bg-gradient-to-br from-[#80ffdb] to-[#0077b6]'>
+    <div className='flex flex-col gap-2 items-center justify-center w-screen min-h-screen bg-gradient-to-br from-[#80ffdb] to-[#0077b6]'>
       <form
         onSubmit={onSubmitForm}
-        className='bg-white p-3 md:p-10 md:my-0 my-10 rounded-xl min-w-[90%] md:min-w-[600px] flex flex-col gap-4'
+        className='bg-white p-3 md:p-10 md:my-0 my-10 rounded-xl min-w-[90%] md:min-w-[500px] flex flex-col gap-4'
       >
         {isLoginFailed && (
           <div className='bg-red-500 text-white font-semibold mx-5 py-2 rounded-xl text-center'>
             <p>登录失败</p>
           </div>
         )}
-        <div className='w-full text-center font-semibold text-3xl md:text-4xl text-gray-500'>
+        <div className='w-full text-center font-semibold mb-5 text-3xl md:text-4xl text-gray-500'>
           <h1>请先登录</h1>
         </div>
-        <div className='flex flex-col gap-2 px-4 w-full form-element'>
-          <label htmlFor='username' className='pl-4'>
-            用户名
+        <div className='flex flex-col gap-2 w-full form-element'>
+          <label htmlFor='password' className='pl-2 flex flex-row items-center gap-2'>
+            <FaUserAlt /> 用户名
           </label>
           <input
             required
@@ -53,9 +54,9 @@ const Login = () => {
             className='p-4 bg-slate-100 rounded-xl outline-none'
           />
         </div>
-        <div className='flex flex-col gap-2 px-4 w-full form-element'>
-          <label htmlFor='password' className='pl-4'>
-            密码
+        <div className='flex flex-col gap-2 w-full form-element'>
+          <label htmlFor='password' className='pl-2 flex flex-row items-center gap-2'>
+            <FaLock /> 密码
           </label>
           <input
             required
@@ -68,8 +69,10 @@ const Login = () => {
             className='p-4 bg-slate-100 rounded-xl outline-none'
           />
         </div>
-        <div className='w-full text-center'>
-          <button className='py-3 px-10 rounded-xl bg-[#FF0063] text-white font-semibold'>登录</button>
+        <div className='w-full text-center pt-3'>
+          <button className='py-3 w-full rounded-xl bg-green-500 hover:bg-green-700 duration-200 text-white font-semibold'>
+            登录
+          </button>
         </div>
         <a href='https://punch.mraddict.top' className='text-xs underline text-center text-[#7475BE]'>
           返回提交页面
