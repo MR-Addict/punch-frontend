@@ -39,9 +39,10 @@ const Login = () => {
         <div className='w-full text-center font-semibold mb-5 text-3xl md:text-4xl text-gray-500'>
           <h1>请先登录</h1>
         </div>
-        <div className='flex flex-col gap-2 w-full form-element'>
+        <div className='flex flex-col w-full form-element'>
           <label htmlFor='password' className='pl-2 flex flex-row items-center gap-2'>
-            <FaUserAlt /> 用户名
+            <FaUserAlt />
+            <span className='text-gray-500 font-semibold'>用户名</span>
           </label>
           <input
             required
@@ -54,9 +55,10 @@ const Login = () => {
             className='p-4 bg-slate-100 rounded-xl outline-none'
           />
         </div>
-        <div className='flex flex-col gap-2 w-full form-element'>
+        <div className='flex flex-col w-full form-element'>
           <label htmlFor='password' className='pl-2 flex flex-row items-center gap-2'>
-            <FaLock /> 密码
+            <FaLock />
+            <span className='text-gray-500 font-semibold'>密码</span>
           </label>
           <input
             required
@@ -74,7 +76,7 @@ const Login = () => {
             登录
           </button>
         </div>
-        <a href='https://punch.mraddict.top' className='text-xs underline text-center text-[#7475BE]'>
+        <a href='https://punch.mraddict.top' className='text-xs underline text-center text-[#0d0f82]'>
           返回提交页面
         </a>
       </form>
