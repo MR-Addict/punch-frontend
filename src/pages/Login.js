@@ -76,9 +76,11 @@ const Login = () => {
             登录
           </button>
         </div>
-        <a href='https://punch.mraddict.top' className='text-xs underline text-center text-[#0d0f82]'>
-          返回提交页面
-        </a>
+        <div className='text-center'>
+          <a href='https://punch.mraddict.top' className='text-xs underline text-center text-[#0d0f82]'>
+            返回提交页面
+          </a>
+        </div>
       </form>
       <Footer />
     </div>
