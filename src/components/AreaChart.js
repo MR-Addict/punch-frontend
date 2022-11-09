@@ -10,10 +10,7 @@ import { useStateContext } from "../context/ContextProvider";
 Chart.register(...registerables);
 
 const getDaysInsightKeys = (days) => {
-  return days.map((item) => {
-    const temp_date = new Date(item["时间"]).toISOString().slice(5, 10);
-    return Number(temp_date.split("-")[0]) + "." + Number(temp_date.split("-")[1]);
-  });
+  return days.map((item) => Number(item["时间"].split("/")[1]) + "." + Number(item["时间"].split("/")[2]));
 };
 
 const getDaysInsightValues = (days) => {

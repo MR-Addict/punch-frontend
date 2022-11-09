@@ -57,7 +57,7 @@ const BarChart = () => {
   };
 
   let BarData = {
-    labels: insightKeys,
+    labels: insightKeys.map((item) => `第${item}周`),
     datasets: [
       {
         type: "bar",
@@ -97,11 +97,17 @@ const BarChart = () => {
     getWeeksInsight((data) => {
       if (data.status) {
         const JSONData = JSON.parse(data.message);
-        const tmpInsightKeys = JSONData[0].map((item) => "第" + item["周次"] + "周");
-        const tmpInsightValues = { 航模组: [], 编程组: [], 电子组: [], 静模组: [], 周次: [] };
-        Object.keys(tmpInsightValues).forEach((prop, index) => {
-          tmpInsightValues[prop] = JSONData[index].map((item) => item[prop]);
+        console.log(JSONData);
+        const tmpInsightKeys = JSONData[4].map((item) => item["周次"]);
+        const tmpInsightValues = { 航模组: [], 编程组: [], 电子组: [], 静模组: [] };
+        Object.keys(tmpInsightValues).forEach((group, index) => {
+          tmpInsightKeys.forEach((week) => {
+            const record = JSONData[index].find((item) => item["周次"] === week);
+            if (record) tmpInsightValues[group].push(record[group]);
+            else tmpInsightValues[group].push(0);
+          });
         });
+        tmpInsightValues["周次"] = JSONData[4].map((item) => item["次数"]);
         setInsightKeys(tmpInsightKeys);
         setInsightValues(tmpInsightValues);
       } else {
