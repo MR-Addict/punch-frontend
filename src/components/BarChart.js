@@ -97,7 +97,6 @@ const BarChart = () => {
     getWeeksInsight((data) => {
       if (data.status) {
         const JSONData = JSON.parse(data.message);
-        console.log(JSONData);
         const tmpInsightKeys = JSONData[4].map((item) => item["周次"]);
         const tmpInsightValues = { 航模组: [], 编程组: [], 电子组: [], 静模组: [] };
         Object.keys(tmpInsightValues).forEach((group, index) => {
