@@ -1,4 +1,4 @@
-<h1>值班笔记后台前端 <img src="https://github.com/MR-Addict/punch-frontend/actions/workflows/docker.yml/badge.svg?branch=main"/></h1>
+# 值班笔记后台前端 ![pages](https://github.com/MR-Addict/punch-frontend/actions/workflows/pages.yml/badge.svg?branch=main)
 
 ## 1. 预览
 
