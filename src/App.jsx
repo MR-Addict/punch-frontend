@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import { AdminLayout } from "./layout";
 import { Home, Settings, Table, Login } from "./pages";
@@ -7,9 +7,8 @@ import { useStateContext } from "./context/ContextProvider";
 
 const App = () => {
   const { isLogin } = useStateContext();
-  if (!isLogin) {
-    return <Login />;
-  }
+  if (!isLogin) return <Login />;
+
   return (
     <Router>
       <Routes>

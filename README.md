@@ -6,22 +6,19 @@
 
 ## 2. 部署
 
-### 2.1 一键部署
+编译：
 
 ```bash
-docker run --restart=unless-stopped -p 8089:3000 -d --name punch-frontend mraddict063/punch-frontend
+npm run build
 ```
 
-### 2.2 dokcer-compose版
-
-克隆文档：
+预览：
 
 ```bash
-git clone https://github.com/MR-Addict/punch-frontend.git
+npm run preview
 ```
 
-部署文档：
+## 3. 可用链接
 
-```bash
-docker-compose up -d
-```
+- [https://admin.mraddict.top](https://admin.mraddict.top)
+- [https://mr-addict.github.io/punch-frontend](https://mr-addict.github.io/punch-frontend)

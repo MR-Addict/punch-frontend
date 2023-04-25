@@ -1,7 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
-import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
+
+import { AgGridReact } from "ag-grid-react";
+import React, { useRef, useState, useEffect } from "react";
 
 import { useStateContext } from "../context/ContextProvider";
 import { getTable, downloadExcel } from "../api";
@@ -41,7 +42,7 @@ const Table = () => {
       <div className='h-full w-full md:w-[90%] bg-white dark:bg-secondary-dark-bg rounded-xl p-4 flex flex-col'>
         <div className='flex flex-row items-center justify-end gap-2'>
           <button
-            className='p-2 mb-2 rounded-xl text-sm font-semibold text-white'
+            className='p-2 mb-2 rounded-md text-sm font-semibold text-white'
             style={{ background: themeColor }}
             onClick={() => downloadExcel()}
           >

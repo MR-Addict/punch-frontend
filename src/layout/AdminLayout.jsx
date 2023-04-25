@@ -25,10 +25,8 @@ const AdminLayout = () => {
         }
       >
         <Navbar />
-        <div className='m-4 dark:text-white'>
+        <div className='dark:text-white flex-1 flex flex-col justify-between'>
           <Outlet />
-        </div>
-        <div className='m-4'>
           <Footer />
         </div>
       </div>
