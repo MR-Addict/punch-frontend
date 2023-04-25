@@ -1,14 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { MdOutlineCancel } from "react-icons/md";
 import { IoMdLogOut } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+import { MdOutlineCancel } from "react-icons/md";
 
 import { useStateContext } from "../context/ContextProvider";
 import { SidebarData, Config } from "../data";
 import { logoutApi } from "../api";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const { themeColor, setIsMenuOpened, screenSize, setIsLogin } = useStateContext();
+
   return (
     <div className='min-h-screen shadow-lg flex flex-col'>
       <div className='font-bold text-xl text-center mt-2'>
@@ -51,6 +54,7 @@ const Sidebar = () => {
           onClick={() => {
             logoutApi((data) => data);
             setIsLogin(false);
+            navigate("/");
           }}
           className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:bg-gray-500 cursor-pointer'
         >

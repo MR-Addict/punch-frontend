@@ -9,7 +9,7 @@ const AdminLayout = () => {
   const { isMenuOpened, isDarkMode, screenSize } = useStateContext();
 
   return (
-    <div className={isDarkMode ? "dark" : ""} style={{ display: "flex", position: "relative" }}>
+    <div className={[isDarkMode ? "dark" : "", "w-full flex relative"].join(" ")}>
       {isMenuOpened ? (
         <div className='fixed w-72 bg-white dark:bg-secondary-dark-bg dark:text-white text-slate-900 z-50'>
           <Sidebar />

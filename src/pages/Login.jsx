@@ -32,8 +32,8 @@ const Login = () => {
   };
 
   return (
-    <div className='bg-gray-100 flex flex-col gap-2 items-center justify-between w-full min-h-screen bg-main-bg'>
-      <div className='w-full max-w-md flex-1 flex flex-col items-center justify-center'>
+    <div className='bg-gray-100 flex-1 flex flex-col gap-2 items-center justify-between w-full bg-main-bg'>
+      <div className='w-full max-w-md flex-1 flex flex-col items-center justify-center px-4'>
         <form
           onSubmit={onSubmitForm}
           className='w-full bg-white p-5 md:p-10 shadow-lg border border-gray-300 rounded-md flex flex-col items-center justify-center gap-4'

@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 #root {
+  min-height: 100vh;
+  min-height: 100svh;
   font-family: sans-serif;
+  @apply flex flex-col justify-between items-center;
 }
