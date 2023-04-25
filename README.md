@@ -1,4 +1,4 @@
-# 值班笔记后台前端 ![pages](https://github.com/MR-Addict/punch-frontend/actions/workflows/pages.yml/badge.svg?branch=main)
+# 值班笔记后台管理前端 ![pages](https://github.com/MR-Addict/punch-frontend/actions/workflows/pages.yml/badge.svg?branch=main)
 
 ## 1. 预览
 
@@ -22,3 +22,7 @@ npm run preview
 
 - [https://admin.mraddict.top](https://admin.mraddict.top)
 - [https://mr-addict.github.io/punch-frontend](https://mr-addict.github.io/punch-frontend)
+
+> 值班笔记项目地址：
+>
+> - [https://github.com/MR-Addict/punch](https://github.com/MR-Addict/punch)

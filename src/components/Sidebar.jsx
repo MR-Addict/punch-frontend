@@ -39,7 +39,7 @@ const Sidebar = () => {
                 onClick={() => {
                   screenSize <= Config.breakPoint && setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened);
                 }}
-                className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:text-gray-400 dark:hover:bg-white'
+                className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:bg-gray-500'
               >
                 <span>{item.icon}</span>
                 <span>{item.title}</span>
@@ -52,7 +52,7 @@ const Sidebar = () => {
             logoutApi((data) => data);
             setIsLogin(false);
           }}
-          className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:text-gray-400 dark:hover:bg-white cursor-pointer'
+          className='flex flex-row items-center text-xl gap-4 pl-5 m-1 rounded-md p-2 hover:bg-light-gray dark:hover:bg-gray-500 cursor-pointer'
         >
           <span>
             <IoMdLogOut />
