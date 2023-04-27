@@ -20,7 +20,6 @@ npm run preview
 
 ## 3. 可用链接
 
-- [https://admin.mraddict.top](https://admin.mraddict.top)
 - [https://mr-addict.github.io/punch-frontend](https://mr-addict.github.io/punch-frontend)
 
 > 值班笔记项目地址：
